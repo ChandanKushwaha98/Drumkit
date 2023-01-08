@@ -10,6 +10,7 @@ function handleClick() {
     // console.log(this.innerHTML)
     let keyPressed = this.innerHTML.toLowerCase()
     makeSound(keyPressed)
+    buttonAnimation(keyPressed)
     // switch (this.innerHTML) {
     //     case "w":
     //         var tom1 = new Audio('./sounds/tom-1.mp3');
@@ -82,4 +83,12 @@ document.addEventListener("keydown", function (event) {
     // console.log(event.key)
     let keyPressed = event.key.toLowerCase()
     makeSound(keyPressed)
+    buttonAnimation(keyPressed)
 })
+function buttonAnimation(currentKey) {
+    let activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed")
+    setTimeout(function () {
+        activeButton.classList.remove("pressed")
+    }, 100)
+}
